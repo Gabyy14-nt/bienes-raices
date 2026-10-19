@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    eventListeners();
+    eventListener();
 
     darkMode();
 });
@@ -33,7 +33,7 @@ function darkMode() {
 function eventListener() {
     const mobileMenu = document.querySelector('.mobile-menu');
     
-    mobileMenu.eventListener('click', navegacionResponsive);
+    mobileMenu.addEventListener('click', navegacionResponsive);
 }
 
 function navegacionResponsive() {
