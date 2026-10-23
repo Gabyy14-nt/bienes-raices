@@ -1,4 +1,12 @@
 <?php 
+
+    require '../../includes/funciones.php';
+    
+    $auth = estaAutenticado();
+    if(!$auth) {
+        header('Location: /');
+    }
+
     // Base de datos
     require '../../includes/config/database.php';
 
@@ -117,14 +125,13 @@
 
             if($resultado) {
                 // Redireccionar al usuario
-                header('Location: /admin');
+                header('Location: /admin?resultado=1');
             }
         }
 
 
     }
 
-    require '../../includes/funciones.php';
     incluirTemplate('header');
 ?>
     <main class="contenedor seccion">
