@@ -27,7 +27,7 @@
         <img loading="lazy" src="/imagenes/<?php echo $propiedad['imagen']; ?>" alt="Imagen de la propiedad">
         <div class="resumen-propiedad">
             <p class="precio">
-                <?php echo $propiedad['precio']; ?>
+                $<?php echo $propiedad['precio']; ?>
             </p>
 
             <ul class="iconos-caracteristicas">
