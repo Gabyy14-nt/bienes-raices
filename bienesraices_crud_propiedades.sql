@@ -1,54 +1,32 @@
--- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
---
--- Host: 127.0.0.1    Database: bienesraices_crud
--- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `propiedades`
---
-
 DROP TABLE IF EXISTS `propiedades`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `propiedades` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) DEFAULT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
   `imagen` varchar(200) DEFAULT NULL,
-  `descripcion` longtext DEFAULT NULL,
-  `habitaciones` int(1) DEFAULT NULL,
-  `wc` int(1) DEFAULT NULL,
-  `estacionamiento` int(1) DEFAULT NULL,
+  `descripcion` longtext,
+  `habitaciones` int DEFAULT NULL,
+  `wc` int DEFAULT NULL,
+  `estacionamiento` int DEFAULT NULL,
   `creado` date DEFAULT NULL,
-  `vendedores_id` int(11) NOT NULL,
+  `vendedores_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_propiedades_vendedores_idx` (`vendedores_id`),
-  CONSTRAINT `fk_propiedades_vendedores` FOREIGN KEY (`vendedores_id`) REFERENCES `vendedores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  CONSTRAINT `fk_propiedades_vendedores` FOREIGN KEY (`vendedores_id`) REFERENCES `vendedores` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `propiedades`
---
-
-LOCK TABLES `propiedades` WRITE;
-/*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (4,'Casa en la playa',120000.00,'d9c6cb04a1fa27c9fe0763914eaa258c.jpg','Casa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playa',4,3,3,'2026-10-19',1);
-/*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `propiedades` (`id`, `titulo`, `precio`, `imagen`, `descripcion`, `habitaciones`, `wc`, `estacionamiento`, `creado`, `vendedores_id`) VALUES
+(5, 'Casa en la playa ACTUALIZADO', '120000.00', 'f3b2637690637eeee8ced9172bd5bcdb.jpg', 'Casa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playaCasa en la playa', 4, 3, 3, '2026-10-25', 1),
+(6, 'Casa en el bosque', '15000.00', '52623926ff1cde83fcdccc5cebbf07d3.jpg', 'Casa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosqueCasa en el bosque', 2, 1, 2, '2026-10-26', 2);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -57,5 +35,3 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2026-10-19 11:37:44

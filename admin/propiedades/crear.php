@@ -34,9 +34,9 @@
         //var_dump($_POST);
         //echo "</pre>";
         
-        echo "<pre>";
-        var_dump($_FILES);
-        echo "</pre>"; 
+        // echo "<pre>";
+        // var_dump($_FILES);
+        // echo "</pre>"; 
 
         $titulo = mysqli_real_escape_string( $db, $_POST['titulo']);
         $precio = mysqli_real_escape_string( $db, $_POST['precio']);
@@ -50,7 +50,7 @@
         // Asignar files hacia una variable
         $imagen = $_FILES['imagen'];
 
-        var_dump($imagen['name']);
+        // var_dump($imagen['name']);
 
 
         // Validaciones
@@ -83,14 +83,14 @@
         }
         
         if (!$imagen['name'] || $imagen['error']) {
-            $errores = "La imagen es obligatoria";
+            $errores[] = "La imagen es obligatoria";
         }
 
         // Validar por tamaño (1MB máximo)
         $medida = 1000 * 1000;
         
         if ($imagen['size'] > $medida) {
-            $errores = "La imagen es muy pesada";
+            $errores[] = "La imagen es muy pesada";
         }
 
         //echo "<pre>";
